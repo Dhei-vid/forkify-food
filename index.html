@@ -37,6 +37,14 @@
         <nav class="nav">
           <ul class="nav__list">
             <li class="nav__item">
+              <button class="nav__btn nav__btn--sort">
+                <svg class="nav__icon">
+                  <use href="src/img/icons.svg#icon-sort"></use>
+                </svg>
+                <span>by Duration</span>
+              </button>
+            </li>
+            <li class="nav__item">
               <button class="nav__btn nav__btn--add-recipe">
                 <svg class="nav__icon">
                   <use href="src/img/icons.svg#icon-edit"></use>
@@ -105,7 +113,10 @@
         </ul>
 
         <div class="pagination">
-          <!-- <button class="btn--inline pagination__btn--prev">
+          <!-- <div class="pagination__number">
+            <span class="pagination__page-number"> 1 </span>
+          </div>
+          <button class="btn--inline pagination__btn--prev">
             <svg class="search__icon">
               <use href="src/img/icons.svg#icon-arrow-left"></use>
             </svg>
@@ -260,24 +271,49 @@
       <form class="upload">
         <div class="upload__column">
           <h3 class="upload__heading">Recipe data</h3>
-          <label>Title</label>
-          <input value="TEST23" required name="title" type="text" />
-          <label>URL</label>
-          <input value="TEST23" required name="sourceUrl" type="text" />
-          <label>Image URL</label>
-          <input value="TEST23" required name="image" type="text" />
-          <label>Publisher</label>
-          <input value="TEST23" required name="publisher" type="text" />
-          <label>Prep time</label>
-          <input value="23" required name="cookingTime" type="number" />
-          <label>Servings</label>
-          <input value="23" required name="servings" type="number" />
+          <label for="title">Title</label>
+          <input value="TEST23" required id="title" name="title" type="text" />
+          <label for="url">URL</label>
+          <input
+            value="TEST23"
+            required
+            id="sourceUrl"
+            name="sourceUrl"
+            type="text"
+          />
+          <label for="image">Image URL</label>
+          <input value="TEST23" required id="image" name="image" type="text" />
+          <label for="publisher">Publisher</label>
+          <input
+            value="TEST23"
+            required
+            id="publisher"
+            name="publisher"
+            type="text"
+          />
+          <label for="prepTime">Prep time</label>
+          <input
+            value="23"
+            required
+            id="cookingTime"
+            name="cookingTime"
+            type="number"
+          />
+          <label for="serving for="servings">Servings</label>
+          <input
+            value="23"
+            required
+            id="servings"
+            name="servings"
+            type="number"
+          />
         </div>
 
         <div class="upload__column">
           <h3 class="upload__heading">Ingredients</h3>
-          <label>Ingredient 1</label>
+          <label for="ingr1">Ingredient 1</label>
           <input
+            id="ing1"
             value="0.5,kg,Rice"
             type="text"
             required
@@ -286,6 +322,7 @@
           />
           <label>Ingredient 2</label>
           <input
+            id="ing2"
             value="1,,Avocado"
             type="text"
             name="ingredient-2"
@@ -293,6 +330,7 @@
           />
           <label>Ingredient 3</label>
           <input
+            id="ing3"
             value=",,salt"
             type="text"
             name="ingredient-3"

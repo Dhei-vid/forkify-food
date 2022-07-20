@@ -34,7 +34,7 @@ export const loadRecipe = async function (id) {
   try {
     // 1) Load recipe
     const data = await AJAX(`${API_URL}/${id}?key=${KEY}`);
-    // console.log(data);
+    console.log(data);
 
     state.recipe = createRecipeObject(data);
 
@@ -60,6 +60,7 @@ export const loadSearchResult = async function (query) {
         title: rec.title,
         image: rec.image_url,
         publisher: rec.publisher,
+        cookingTime: rec.cooking_time,
         ...(rec.key && { key: rec.key }),
       };
     });
@@ -126,7 +127,7 @@ const clearBookmarks = function () {
   localStorage.clear('bookmarks');
 };
 
-// clearBookmarks();
+clearBookmarks();
 
 /**
  * Upload the recipe data to be rendered and stored in the localStorage

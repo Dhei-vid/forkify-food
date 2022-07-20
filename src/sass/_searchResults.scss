@@ -40,3 +40,13 @@
     color: $color-grey-dark-2;
   }
 }
+
+.pagination__number {
+  position: relative;
+  text-align: center;
+
+  .pagination__page-number {
+    font-size: 2rem;
+    color: $color-primary;
+  }
+}

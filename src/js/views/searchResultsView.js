@@ -8,7 +8,10 @@ class SearcResultView extends View {
 
   _generateMarkup() {
     return this._recipeData
-      .map(results => previewView.render(results, false))
+      .map(results => {
+        console.log(results);
+        return previewView.render(results, false);
+      })
       .join();
   }
 }

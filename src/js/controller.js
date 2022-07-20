@@ -89,6 +89,10 @@ const controlServings = function (newServings) {
   recipeView.updateDOM(model.state.recipe);
 };
 
+// const controlSortRecipe = function () {
+//   console.log(model.state.search);
+// };
+
 const controlAddBookmark = function () {
   // 1) Add/remove bookmark
   if (!model.state.recipe.bookmarked) {
@@ -135,7 +139,7 @@ const controlAddRecipe = async function (newRecipe) {
       location.reload();
     }, modalClose * 1000);
   } catch (err) {
-    throw err;
+    // throw err;
 
     addRecipeView.renderError(err.message);
   }
@@ -150,6 +154,7 @@ const init = function () {
   searchView.searchHandler(controlSearchResult);
   PageView.paginationHander(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  // controlSortRecipe();
   console.log('I did it');
 };
 

@@ -25,41 +25,52 @@ class PageView extends View {
 
     // page 1, and there are other pages
     if (curPage === 1 && numPages > 1) {
-      return this._RightArrow(curPage);
+      return [this._PageNumber(curPage), this._RightArrow(curPage)];
     }
 
     // other pages
     if (curPage > 1 && numPages > curPage) {
-      return [this._LeftArrow(curPage), this._RightArrow(curPage)];
+      return [
+        this._PageNumber(curPage),
+        this._LeftArrow(curPage),
+        this._RightArrow(curPage),
+      ];
     }
 
     // Last page
     if (curPage === numPages && curPage > 1) {
-      return this._LeftArrow(curPage);
+      return [this._PageNumber(curPage), this._LeftArrow(curPage)];
     }
 
     // page 1
     return '';
   }
 
+  _PageNumber(page) {
+    return `
+      <div class="pagination__number">
+        <span class="pagination__page-number"> ${page} </span>
+      </div>`;
+  }
+
   _RightArrow(page) {
     return `
-      <button class="btn--inline pagination__btn--next" data-goto="${page + 1}">
-        <span>Page ${page + 1}</span>
-        <svg class="search__icon">
-          <use href="${icons}#icon-arrow-right"></use>
-        </svg>
-      </button>`;
+    <button class="btn--inline pagination__btn--next" data-goto="${page + 1}">
+    <span>Page ${page + 1}</span>
+    <svg class="search__icon">
+    <use href="${icons}#icon-arrow-right"></use>
+    </svg>
+    </button>`;
   }
 
   _LeftArrow(page) {
     return `
-      <button class="btn--inline pagination__btn--prev" data-goto="${page - 1}">
-        <svg class="search__icon">
-          <use href="${icons}#icon-arrow-left"></use>
-        </svg>
-        <span>Page ${page - 1}</span>
-      </button>
+    <button class="btn--inline pagination__btn--prev" data-goto="${page - 1}">
+    <svg class="search__icon">
+      <use href="${icons}#icon-arrow-left"></use>
+    </svg>
+      <span>Page ${page - 1}</span>
+    </button>
     `;
   }
 }
